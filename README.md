@@ -2,10 +2,8 @@
 
 A simple React application demonstrating Supabase OAuth login with various providers. Features include:
 
-- Display of all login provider icons in black and white
-- On hover, icons show colorful versions and move slightly up (similar to Mac dock)
-- Display of "Log in with [provider]" text
-- User info display after login
+- Greyed out providers are in progress.
+- User info is displayed after login (.auth.getUser() response).
 
 ## Setup
 
