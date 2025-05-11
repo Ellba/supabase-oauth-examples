@@ -2,7 +2,7 @@
 
 A simple React application demonstrating Supabase OAuth login with various providers. Features include:
 
-- Greyed out providers are in progress.
+- Apple, Kakao, KeyCloak, and Spotify providers are in progress.
 - User info is displayed after login (.auth.getUser() response).
 
 ## Setup
