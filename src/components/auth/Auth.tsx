@@ -24,7 +24,7 @@ import {
 } from './AuthStyles';
 
 // List of providers that require verification and should appear greyed out
-const verificationRequiredProviders = ['apple', 'kakao', 'keycloak'];
+const verificationRequiredProviders = ['apple', 'kakao', 'keycloak', 'spotify'];
 
 const Auth: React.FC = () => {
   const { user, signInWithOAuth, signOut, loading } = useAuth();
