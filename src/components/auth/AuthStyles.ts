@@ -172,6 +172,33 @@ export const SignOutButton = styled.button`
   }
 `;
 
+export const AuthErrorMessage = styled.div`
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #ffdddd;
+  border-left: 4px solid #f44336;
+  color: #333;
+  border-radius: 4px;
+  text-align: left;
+  max-width: 500px;
+  width: 100%;
+`;
+
+export const ErrorDismissButton = styled.button`
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  &:hover {
+    background: #d32f2f;
+  }
+`;
+
 export const LoadingSpinner = styled.div`
   border: 4px solid rgba(255, 255, 255, 0.1);
   border-top: 4px solid #e0e0e0;
