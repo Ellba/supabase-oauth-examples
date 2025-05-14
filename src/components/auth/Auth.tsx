@@ -20,14 +20,16 @@ import {
   UserEmail,
   UserProvider,
   SignOutButton,
-  LoadingSpinner
+  LoadingSpinner,
+  AuthErrorMessage,
+  ErrorDismissButton
 } from './AuthStyles';
 
 // List of providers that require verification and should appear greyed out
-const verificationRequiredProviders = ['apple', 'kakao', 'keycloak', 'spotify'];
+const verificationRequiredProviders = ['apple', 'kakao', 'keycloak'];
 
 const Auth: React.FC = () => {
-  const { user, signInWithOAuth, signOut, loading } = useAuth();
+  const { user, signInWithOAuth, signOut, loading, authError, clearAuthError } = useAuth();
   const [selectedProvider, setSelectedProvider] = useState<Provider | null>(null);
   const [userData, setUserData] = useState<any>(null);
 
@@ -66,6 +68,33 @@ const Auth: React.FC = () => {
     );
   }
 
+  // Helper function to render the error message with specific handling for Spotify
+  const renderErrorMessage = () => {
+    if (!authError) return null;
+    
+    if (authError.includes('spotify') && authError.includes('verification')) {
+      return (
+        <AuthErrorMessage>
+          <strong>Spotify Email Verification Required</strong>
+          <p>Your Spotify account email needs to be verified before you can sign in. Please check your email for a verification message from Spotify.</p>
+          <ErrorDismissButton onClick={clearAuthError}>
+            Dismiss
+          </ErrorDismissButton>
+        </AuthErrorMessage>
+      );
+    }
+    
+    return (
+      <AuthErrorMessage>
+        <strong>Authentication Error</strong>
+        <p>{authError}</p>
+        <ErrorDismissButton onClick={clearAuthError}>
+          Dismiss
+        </ErrorDismissButton>
+      </AuthErrorMessage>
+    );
+  };
+
   return (
     <AuthContainer>
       <AuthTitle>
@@ -78,6 +107,9 @@ const Auth: React.FC = () => {
           <OAuthText>OAuth Login</OAuthText>
         </a>
       </AuthTitle>
+      
+      {/* Display error message if there is one */}
+      {renderErrorMessage()}
       
       {user ? (
         <div>
@@ -203,7 +235,7 @@ const Auth: React.FC = () => {
             ))}
           </div>
           
-          {selectedProvider && (
+          {selectedProvider && !authError && (
             <AuthMessage>
               Redirecting to {getAuthProviderName(selectedProvider)} login...
             </AuthMessage>
