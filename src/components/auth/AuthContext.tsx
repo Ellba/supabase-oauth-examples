@@ -68,7 +68,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           options: {
             redirectTo: window.location.origin,
             queryParams: {
-              connection: 'conn_01JSVTMY3PG7RESMGBKSGK7PVA',
+              organization: 'org_01JW46HM1E3V7AFXE9C7G0YQ6M',
             },
           },
         });
