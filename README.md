@@ -1,9 +1,7 @@
 # Supabase OAuth Login Demo
 
-A simple React application demonstrating Supabase OAuth login with various providers. Features include:
-
-- Apple, Kakao, KeyCloak, and Spotify providers are in progress.
-- User info is displayed after login (.auth.getUser() response).
+A simple React application demonstrating Supabase OAuth login with various providers.
+User info is displayed after login (.auth.getUser() response).
 
 ## Setup
 
@@ -27,7 +25,7 @@ A simple React application demonstrating Supabase OAuth login with various provi
 To enable OAuth providers, you need to:
 
 1. Go to your Supabase project dashboard
-2. Navigate to Authentication → Providers
+2. Navigate to Authentication → Sign In / Providers
 3. Enable and configure the providers you want to use
 4. Add callback URLs for your application
 
