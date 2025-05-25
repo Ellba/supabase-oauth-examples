@@ -1,6 +1,7 @@
 # Supabase OAuth Login Demo
 
 A simple React application demonstrating Supabase OAuth login with various providers.
+
 User info is displayed after login (.auth.getUser() response).
 
 ## Setup
